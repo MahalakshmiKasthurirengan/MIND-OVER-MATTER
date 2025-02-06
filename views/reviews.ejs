@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="images/icon.jpeg">
+    <title>PUBLIC REVIEWS</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicons@2.5.0/fonts/remixicon.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mali&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;600&display=swap" rel="stylesheet">
+    <style>
+      /* Fixed Position for the "Public Reviews" Heading */
+      .hero-headings h1 {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        color: white;
+        padding: 10px 0;
+        text-align: start;  
+      }
+
+      /* Reviews Container with Horizontal Scroll Styling */
+      .reviews-container {
+        max-width: 100%; /* Full width for container */
+        display: flex;
+        overflow-x: auto; /* Enable horizontal scrolling */
+        padding: 20px;
+        gap: 15px;
+        scroll-behavior: smooth;
+        /* background-color: #f8f9fa; */
+        border-radius: 8px;
+      }
+
+      /* Custom Scrollbar Styling */
+      .reviews-container::-webkit-scrollbar {
+        height: 8px;
+      }
+      .reviews-container::-webkit-scrollbar-thumb {
+        background-color: #888;
+        border-radius: 4px;
+      }
+      .reviews-container::-webkit-scrollbar-thumb:hover {
+        background-color: #555;
+      }
+
+      /* Review Card Styling */
+      .review-card {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        background-color: #ffffff;
+        color: black;
+        padding: 20px;
+        box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.2);
+        width: 400px; /* Increased width for better readability */
+        min-width: 400px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .review-card:hover {
+        transform: translateY(-5px); /* Lift effect on hover */
+        box-shadow: 4px 8px 12px rgba(0, 0, 0, 0.3);
+      }
+
+      .reviewer-name {
+        font-weight: bold;
+        font-size: 1.2em;
+        margin-bottom: 10px;
+        color: #333;
+      }
+
+      .review-detail {
+        margin-top: 5px;
+        color: #666;
+        font-size: 0.9em;
+      }
+    </style>
+  </head>
+  <body style="color: white;">
+    <div class="topbar">
+      <header>
+        <a href="/" class="logo">MIND OVER MATTER</a>
+        <ul class="topbar_list">
+          <li><a href="/">HOME</a></li>
+          <li><a href="/signup">REGISTER</a></li>
+          <li><a href="/login">LOGIN</a></li>
+          <li><a href="/reviews">PUBLIC REVIEW</a></li>
+          <li><a href="/aboutus">ABOUT US</a></li>
+        </ul>
+        <div class="bx bx-menu" id="menu-icons"></div>
+      </header>
+    </div>
+    
+    <section class="hero-headings">
+      <div class="hero-headings-inside">
+        <h1>Public Reviews</h1>
+        <div class="reviews-container" id="reviews-container">
+          <% if (reviews && reviews.length > 0) { %>
+            <% reviews.forEach(review => { %>
+              <div class="review-card">
+                <span class="reviewer-name"><%= review.reviewerName %></span>
+                <p class="review-detail">Starting Stage: <%= review.reviewStartingStage %></p>
+                <p class="review-detail">Ending Stage: <%= review.reviewEndingStage %></p>
+                <p class="review-detail">Duration: <%= review.reviewDuration %></p>
+                <p class="review-detail"><%= review.reviewContent %></p>
+              </div>
+            <% }) %>
+          <% } else { %>
+            <p>No reviews available.</p>
+          <% } %>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Child's Daily Tasks</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicons@2.5.0/fonts/remixicon.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mali&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&family=Rock+Salt&display=swap" rel="stylesheet">
+    <style>
+        /* Add your additional CSS styles here */
+        .task-list li {
+            margin-bottom: 10px;
+        }
+        .task-list button {
+            margin-left: 10px;
+        }
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: linear-gradient(245.59deg, rgb(20, 20, 132) 0%, rgb(65, 65, 205) 28.53%, rgb(38, 38, 147) 75.52%);
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+        .popup-content {
+            text-align: center;
+        }
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="topbar">
+        <header>
+            <a href="/" class="logo">MIND OVER MATTER</a>
+            <ul><li><a href="/">LOGOUT</a></li></ul>
+            <div class="user-profile">
+                <% if (child && child.name) { %>
+                    <span class="childname">Hello!! <%= child.name %></span>
+                <% } else { %>
+                    <span class="childname">Hello!! Child</span> <!-- Default message if child data is not available -->
+                <% } %>
+            </div>
+            <div class="bx bx-menu" id="menu-icons"></div>
+        </header>
+    </div>
+<br><br>
+    <div class="container3">
+        <h2>Daily Tasks</h2>
+        <ul class="task-list">
+            <li>
+                <label>Morning Wakeup
+                    at 7'O clock
+                </label><br>
+                <button onclick="taskCompleted('Morning')">Completed</button>
+            </li>
+            <br>
+            <li>
+                <label>Breakfast with Healthy List: <br>
+                        Wheat Bread, Apple, Health Mix, Upma, Poha, Idly
+                </label>
+                <button onclick="taskCompleted('Breakfast')">Completed</button>
+            </li>
+            <br>
+            <li>
+                <label>Juice at 11'O clock: <br>
+                    
+                </label>
+                <button onclick="taskCompleted('Juice')">Completed</button>
+            </li>
+            <br>
+            <li>
+                <label>Lunch with Healthy List: <br>
+                    Dal Khichdi, Palak Paneer with Chapati, Vegetable Pulao, Rajma with Brown Rice
+                </label>
+                <button onclick="taskCompleted('Lunch')">Completed</button>
+            </li>
+            <br>
+            <li>
+                <label>Playing Time:
+                    Sports activity and outdoor games 
+                </label>
+                <button onclick="taskCompleted('Playing')">Completed</button>
+            </li>
+            <br>
+            <li>
+                <label>Dinner with Healthy: <br>
+                    Moong Dal Tadka with Jeera Rice, Bhindi (Okra) Masala with Bajra Roti, <br>
+                    Aloo Gobi with Multigrain Chapati, Chickpea Curry with Quinoa
+                </label>
+                <button onclick="taskCompleted('Dinner')">Completed</button>
+            </li><br>
+            <li>
+                <label>Listening to Music</label>
+                <button onclick="taskCompleted('Listening')">Completed</button>
+            </li>
+            <br> 
+            <li>
+                <label>Reading Books</label>
+                <button onclick="taskCompleted('Reading')">Completed</button>
+            </li>
+            <br>
+            <li>
+                <label>Bed Time at 9'O clock</label>
+                <button onclick="taskCompleted('Bed Time')">Completed</button>
+            </li>
+            <!-- Add more tasks as needed -->
+        </ul>
+    </div>
+
+    <div id="popup" class="popup">
+        <div class="popup-content">
+            <span class="close" onclick="closePopup()">&times;</span>
+            <p id="popup-message"></p>
+        </div>
+    </div>
+
+    <script>
+        function taskCompleted(task) {
+            // Logic to mark task as completed (you can modify this based on your backend logic)
+            document.getElementById("popup-message").innerText = `Task "${task}" completed!`;
+            document.getElementById("popup").style.display = "block";
+            // Additional logic to remove the task from the list if needed
+            // Example: document.querySelector(`li label:contains(${task})`).parentElement.remove();
+        }
+
+        function closePopup() {
+            document.getElementById("popup").style.display = "none";
+        }
+    </script>
+
+</body>
+</html>

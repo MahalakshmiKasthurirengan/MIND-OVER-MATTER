@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mind Over Matter - Add Review</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="icon" href="/images/icon.jpeg">
+</head>
+<body style="color: white;">
+    <div class="topbar">
+        <header>
+            <a href="/" class="logo">MIND OVER MATTER</a>
+            <ul class="topbar_list">
+                <li><a href="/">LOGOUT</a></li>
+            </ul>
+            <ul class="topbar_list">
+                <li><a href="/addreview">ADD REVIEW</a></li>
+            </ul>
+            <div class="bx bx-menu" id="menu-icons"></div>
+        </header>
+    </div>
+
+    <section class="add-review-section">
+        <div class="container">
+            <h1 class="title">Share Your Review</h1>
+
+            <!-- Display success message if review is submitted -->
+            <% if (success) { %>
+                <div style="color: blue; font-size: 18px; margin-bottom: 20px;">
+                    <%= success %>
+                </div>
+                <!-- Button to go to Home page -->
+                <div style="margin-bottom: 20px;">
+                    <a href="/home" class="submit-btn" style="padding: 10px 20px; text-decoration: none; background-color: #4CAF50; color: white; border-radius: 5px;">Go to Home</a>
+                </div>
+            <% } %>
+
+            <form action="/submitreview" method="POST" class="review-form">
+                <div class="form-group">
+                    <label for="reviewerName">Your Name</label>
+                    <input type="text" id="reviewerName" name="reviewerName" placeholder="Enter your name" required>
+                </div>
+                <div class="form-group">
+                    <label for="reviewerEmail">Your Email</label>
+                    <input type="email" id="reviewerEmail" name="reviewerEmail" placeholder="Enter your email" required>
+                </div>
+                <div class="form-group">
+                    <label for="reviewStartingStage">Starting Stage</label>
+                    <input type="text" id="reviewStartingStage" name="reviewStartingStage" placeholder="Enter your starting stage" required>
+                </div>
+                <div class="form-group">
+                    <label for="reviewEndingStage">Current Stage</label>
+                    <input type="text" id="reviewEndingStage" name="reviewEndingStage" placeholder="Enter your current stage" required>
+                </div>
+                <div class="form-group">
+                    <label for="reviewDuration">Duration</label>
+                    <input type="text" id="reviewDuration" name="reviewDuration" placeholder="Enter the duration" required>
+                </div>
+                <div class="form-group">
+                    <label for="reviewContent">Your Review</label>
+                    <textarea id="reviewContent" name="reviewContent" rows="6" placeholder="Share your thoughts" required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Submit Review</button>
+            </form>
+        </div>
+    </section>
+
+    <div class="side-icons">
+        <a href="#"><i class="ri-instagram-line"></i></a>
+        <a href="#"><i class="ri-youtube-line"></i></a>
+        <a href="#"><i class="ri-twitter-line"></i></a>
+    </div>
+
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="/js/script.js"></script>
+</body>
+</html>

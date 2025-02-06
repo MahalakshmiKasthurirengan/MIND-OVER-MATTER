@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="/images/icon.jpeg">
+    <title>Mind Over Matter</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 100px;
+            padding: 20px;
+            background-color: #f0f0f0;
+            color: #333;
+        }
+        .doctor-list-container {
+            max-width: 900px;
+            /* margin-top: 20px; */
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .doctor-list-container h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 32px;
+        }
+        .doctor-list-container ul {
+            list-style: none;
+            padding: 0;
+        }
+        .doctor-list-container li {
+            background-color: #ecf0f1;
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+        }
+        .doctor-list-container li:hover {
+            background-color: #dfe6e9;
+        }
+        .doctor-name {
+            font-weight: 600;
+            font-size: 18px;
+        }
+        .doctor-specialty {
+            font-style: italic;
+            color: #7f8c8d;
+        }
+        .doctor-details {
+            display: none;
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #f8f9fa;
+            border-left: 4px solid #3498db;
+            color: #333;
+        }
+        .back-home {
+            display: block;
+            text-align: center;
+            margin-top: 30px;
+            color: #3498db;
+            text-decoration: none;
+        }
+        .back-home:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="topbar">
+        <header>
+            <a href="/" class="logo">MIND OVER MATTER</a>
+            <ul class="topbar_list">
+                <li><a href="/">HOME</a></li>
+                <li><a href="/signup">REGISTER</a></li>
+                <li><a href="/login">LOGIN</a></li>
+                <li><a href="/reviews">PUBLIC REVIEW</a></li>
+                <li><a href="/aboutus">ABOUT US</a></li>
+            </ul>
+            <div class="bx bx-menu" id="menu-icons"></div>
+        </header>
+    </div>
+
+    <div class="doctor-list-container">
+        <h1>Doctor List</h1>
+        <ul>
+            <li onclick="toggleDescription(this)">
+                <div>
+                    <span class="doctor-name">Dr. Senthil Kumar</span>
+                    <span class="doctor-specialty">Autism Specialist</span>
+                    <div class="doctor-details">
+                        <p>Address: 11, Kovai Road, Tiruppur, Tamil Nadu 641602</p>
+                        <p>Phone: 0421 220 0101</p>
+                    </div>
+                </div>
+            </li>
+            <li onclick="toggleDescription(this)">
+                <div>
+                    <span class="doctor-name">Dr. Naveen Kumar</span>
+                    <span class="doctor-specialty">Autism Specialist</span>
+                    <div class="doctor-details">
+                        <p>Address: 143, Avinashi Road, Tiruppur, Tamil Nadu 641603</p>
+                        <p>Phone: 0421 222 2122</p>
+                    </div>
+                </div>
+            </li>
+            <li onclick="toggleDescription(this)">
+                <div>
+                    <span class="doctor-name">Dr. Maheshwari</span>
+                    <span class="doctor-specialty">Autism Specialist</span>
+                    <div class="doctor-details">
+                        <p>Address: 25, Kumaran Road, Tiruppur, Tamil Nadu 641601</p>
+                        <p>Phone: 0421 221 1515</p>
+                    </div>
+                </div>
+            </li>
+            <li onclick="toggleDescription(this)">
+                <div>
+                    <span class="doctor-name">Dr. Ramesh</span>
+                    <span class="doctor-specialty">Autism Specialist</span>
+                    <div class="doctor-details">
+                        <p>Address: 50, Palladam Road, Tiruppur, Tamil Nadu 641664</p>
+                        <p>Phone: 0421 223 2323</p>
+                    </div>
+                </div>
+            </li>
+            <li onclick="toggleDescription(this)">
+                <div>
+                    <span class="doctor-name">Dr. Kavitha</span>
+                    <span class="doctor-specialty">Autism Specialist</span>
+                    <div class="doctor-details">
+                        <p>Address: 17, Tiruppur-Kangayam Road, Tiruppur, Tamil Nadu 641607</p>
+                        <p>Phone: 0421 225 2525</p>
+                    </div>
+                </div>
+            </li>
+            <li onclick="toggleDescription(this)">
+                <div>
+                    <span class="doctor-name">Dr. Suresh</span>
+                    <span class="doctor-specialty">Autism Specialist</span>
+                    <div class="doctor-details">
+                        <p>Address: 34, Udumalai Road, Tiruppur, Tamil Nadu 642129</p>
+                        <p>Phone: 0421 226 2626</p>
+                    </div>
+                </div>
+            </li>
+            <li onclick="toggleDescription(this)">
+                <div>
+                    <span class="doctor-name">Dr. Priya</span>
+                    <span class="doctor-specialty">Autism Specialist</span>
+                    <div class="doctor-details">
+                        <p>Address: 56, Dharapuram Road, Tiruppur, Tamil Nadu 641205</p>
+                        <p>Phone: 0421 227 2727</p>
+                    </div>
+                </div>
+            </li>
+            <li onclick="toggleDescription(this)">
+                <div>
+                    <span class="doctor-name">Dr. Raghu</span>
+                    <span class="doctor-specialty">Autism Specialist</span>
+                    <div class="doctor-details">
+                        <p>Address: 28, Kangeyam Road, Tiruppur, Tamil Nadu 641667</p>
+                        <p>Phone: 0421 228 2828</p>
+                    </div>
+                </div>
+            </li>
+            <li onclick="toggleDescription(this)">
+                <div>
+                    <span class="doctor-name">Dr. Sathya</span>
+                    <span class="doctor-specialty">Autism Specialist</span>
+                    <div class="doctor-details">
+                        <p>Address: 19, Palladam Road, Tiruppur, Tamil Nadu 641665</p>
+                        <p>Phone: 0421 229 2929</p>
+                    </div>
+                </div>
+            </li>
+            <li onclick="toggleDescription(this)">
+                <div>
+                    <span class="doctor-name">Dr. Vinoth</span>
+                    <span class="doctor-specialty">Autism Specialist</span>
+                    <div class="doctor-details">
+                        <p>Address: 4, Tiruppur-Avinashi Road, Tiruppur, Tamil Nadu 641654</p>
+                        <p>Phone: 0421 230 3030</p>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    
+
+    <a href="/" class="back-home">Back to Home</a>
+
+    <script>
+        function toggleDescription(element) {
+            const details = element.querySelector('.doctor-details');
+            details.style.display = details.style.display === 'block' ? 'none' : 'block';
+        }
+    </script>
+
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="/js/script.js"></script>
+</body>
+</html>
